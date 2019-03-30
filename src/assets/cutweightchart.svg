@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 425 47">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke: #ff706a;
+      }
+
+      .cls-2 {
+        fill: #dbdbdb;
+      }
+
+      .cls-3 {
+        fill: #efa34b;
+      }
+
+      .cls-4, .cls-7, .cls-8 {
+        fill: #b90024;
+      }
+
+      .cls-5 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-11, .cls-6 {
+        fill: none;
+      }
+
+      .cls-7 {
+        stroke: #000;
+        stroke-width: 2px;
+      }
+
+      .cls-8 {
+        stroke: #707070;
+      }
+
+      .cls-10, .cls-9 {
+        stroke: none;
+      }
+
+      .cls-10 {
+        fill: #ff706a;
+      }
+    </style>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_22" data-name="Rectangle 22" class="cls-1" width="26" height="47" transform="translate(115.734 761.237)"/>
+    </clipPath>
+  </defs>
+  <g id="減肥進度條" transform="translate(-120 -800)">
+    <g id="Group_18" data-name="Group 18" transform="translate(0 2)">
+      <rect id="Rectangle_21" data-name="Rectangle 21" class="cls-2" width="130" height="3" transform="translate(150 823)"/>
+      <path id="Path_54" data-name="Path 54" class="cls-3" d="M0,0H132V3H0Z" transform="translate(280 823)"/>
+      <path id="Path_41" data-name="Path 41" class="cls-4" d="M0,0H126V3H0Z" transform="translate(412 823)"/>
+    </g>
+    <g id="Mask_Group_1" data-name="Mask Group 1" class="cls-5" transform="translate(4.266 38.763)">
+      <g id="Path_6" data-name="Path 6" class="cls-6" transform="translate(131.9 777.737)">
+        <path class="cls-9" d="M9.834.5c5.546,0,5.546,20,0,20a10,10,0,0,1,0-20Z"/>
+        <path class="cls-10" d="M 9.834173202514648 19.49957275390625 C 10.93730354309082 19.49957275390625 11.67462348937988 17.95091247558594 12.01595306396484 17.02777290344238 C 12.63738346099854 15.3470630645752 12.99379348754883 12.96762275695801 12.99379348754883 10.49957275390625 C 12.99379348754883 8.031522750854492 12.63738346099854 5.652082920074463 12.01595306396484 3.971372842788696 C 11.67462348937988 3.048232793807983 10.93730354309082 1.49957275390625 9.834173202514648 1.49957275390625 C 7.418912887573242 1.49957275390625 5.155713081359863 2.432632684707642 3.461472988128662 4.126872539520264 C 1.76723313331604 5.821112632751465 0.8341730833053589 8.084312438964844 0.8341730833053589 10.49957275390625 C 0.8341730833053589 12.91483306884766 1.76723313331604 15.17803287506104 3.461472988128662 16.87227249145508 C 5.155713081359863 18.56651306152344 7.418912887573242 19.49957275390625 9.834173202514648 19.49957275390625 M 9.834173202514648 20.49957275390625 C 4.288022994995117 20.49957275390625 -0.1658269315958023 16.04573249816895 -0.1658269315958023 10.49957275390625 C -0.1658269315958023 4.953422546386719 4.288022994995117 0.49957275390625 9.834173202514648 0.49957275390625 C 15.38033294677734 0.49957275390625 15.38033294677734 20.49957275390625 9.834173202514648 20.49957275390625 Z"/>
+      </g>
+    </g>
+    <g id="Ellipse_1" data-name="Ellipse 1" class="cls-7" transform="translate(534 821)">
+      <circle class="cls-9" cx="5.5" cy="5.5" r="5.5"/>
+      <circle class="cls-11" cx="5.5" cy="5.5" r="4.5"/>
+    </g>
+    <g id="Ellipse_4" data-name="Ellipse 4" class="cls-8" transform="translate(407 823)">
+      <circle class="cls-9" cx="4" cy="4" r="4"/>
+      <circle class="cls-11" cx="4" cy="4" r="3.5"/>
+    </g>
+    <g id="Ellipse_5" data-name="Ellipse 5" class="cls-8" transform="translate(277 823)">
+      <circle class="cls-9" cx="4" cy="4" r="4"/>
+      <circle class="cls-11" cx="4" cy="4" r="3.5"/>
+    </g>
+    <g id="Ellipse_6" data-name="Ellipse 6" class="cls-8" transform="translate(142 823)">
+      <circle class="cls-9" cx="4" cy="4" r="4"/>
+      <circle class="cls-11" cx="4" cy="4" r="3.5"/>
+    </g>
+  </g>
+</svg>

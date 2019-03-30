@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 22">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ce3e33;
+      }
+    </style>
+  </defs>
+  <g id="plane_icon" data-name="plane icon" transform="translate(-0.2 0.401)">
+    <path id="Path_10" data-name="Path 10" class="cls-1" d="M23,40,41,28,16,35Z" transform="translate(-15.8 -28.4)"/>
+    <path id="Path_11" data-name="Path 11" class="cls-1" d="M53.865,30.248l-17,12,2,9Z" transform="translate(-28.665 -29.649)"/>
+  </g>
+</svg>

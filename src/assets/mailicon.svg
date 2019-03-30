@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52.5 23">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #fff;
+      }
+    </style>
+  </defs>
+  <g id="mail_text" data-name="mail text" transform="translate(0.476 0)">
+    <g id="mail" transform="translate(18.308)">
+      <path id="Path_8" data-name="Path 8" class="cls-1" d="M35.507,10.787h-25c-3.929,0-5,2.079-5,4v14c0,2.921,3.08,5,6,5h23a4.809,4.809,0,0,0,5-5v-14C39.507,12.867,39.437,10.787,35.507,10.787Zm-25,2h25a2.08,2.08,0,0,1,2,1c-2.106,2.073-8.794,8.848-11,11a8.422,8.422,0,0,1-4,2c-.674,0-1.86-.886-3-2-2.206-2.152-8.893-8.927-11-11A2.08,2.08,0,0,1,10.507,12.787Zm-3,2h0c1.908,1.879,6.213,6.264,9,9l-8,7a2.96,2.96,0,0,1-1-2Zm4,17a6.358,6.358,0,0,1-2,0l8-7c.586.575.639.649,1,1a6.364,6.364,0,0,0,4,2,6.358,6.358,0,0,0,4-2c.361-.351,1.414-.424,2-1l8,7a6.391,6.391,0,0,1-2,0Zm27-3a2.96,2.96,0,0,1-1,2l-8-7c2.786-2.736,7.092-7.121,9-9h0Z" transform="translate(-5.791 -10.787)"/>
+    </g>
+    <path id="Path_9" data-name="Path 9" class="cls-2" d="M-.476.355h17" transform="translate(0 4.145)"/>
+    <line id="Line_1" data-name="Line 1" class="cls-2" x2="14" transform="translate(2.524 8.5)"/>
+    <line id="Line_1-2" data-name="Line 1" class="cls-2" x2="10" transform="translate(6.524 13.5)"/>
+  </g>
+</svg>
