@@ -1,7 +1,6 @@
 <template>
     <div>
         <!-- <navbar></navbar> -->
-        <p>123</p>
         <socialApp/>
         <mainPic/>
         <videos/>
