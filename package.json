@@ -20,7 +20,8 @@
     "vue-coverflow": "^2.2.0",
     "vue-eva-icons": "^1.1.0",
     "vue-router": "^3.0.2",
-    "vue-sidebar-menu": "^3.6.2"
+    "vue-sidebar-menu": "^3.6.2",
+    "vuelidate": "^0.7.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.4.0",
