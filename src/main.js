@@ -9,9 +9,10 @@ import BootstrapVue from 'bootstrap-vue'
 import EvaIcons from '../node_modules/vue-eva-icons'
 import AOS from '../node_modules/aos'
 import '../node_modules/aos/dist/aos.cjs'
-import axios from 'axios'
+import Vuelidate from 'vuelidate'
 
 Vue.config.productionTip = false
+Vue.use(Vuelidate)
 Vue.use(coverflow)
 Vue.use(EvaIcons)
 Vue.use(BootstrapVue)

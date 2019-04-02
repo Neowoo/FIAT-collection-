@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     <b-form-group class="my-4" label='帳號(信箱)：' label-cols-sm="3">
-                        <b-form-input class="col-8" v-model="signUpEmail"></b-form-input>
+                        <b-form-input class="col-8" @input="$v.signUpEmail.$touch()" v-model="signUpEmail"></b-form-input>
                     </b-form-group>   
                     <b-form-group class="mb-4" label='密碼：' label-cols-sm="3" >
                         <b-form-input class="col-8" type='password' v-model="signUpPassword"></b-form-input>
@@ -132,20 +132,8 @@
     </div>
 </template>
 <script>
-import axios from '../../src/signUpAxios.js';
-window.addEventListener("scroll", function(){
-        var y = window.scrollY;
-        if(y > 250){
-            document.getElementById('nav').classList.add('scrolled');
-            document.getElementById('mail-icon').classList.add('cls-scroll')
-            document.getElementById('sendMail').classList.add('mail-scroll')
-        } else {
-            document.getElementById('nav').classList.remove('scrolled');
-            document.getElementById('mail-icon').classList.remove('cls-scroll')
-            document.getElementById('sendMail').classList.remove('mail-scroll')
-
-        }
-      });
+import axios from '../../src/signUpAxios.js'
+import {required, email} from 'vuelidate'
 
 export default {
     name: 'Opening',
@@ -217,6 +205,26 @@ export default {
       validFeedback:() => {
         return this.state === true ? 'Thank you' : ''
       }
+    },
+    created(){
+        window.addEventListener("scroll", function(){
+        var y = window.scrollY;
+        if(y > 250){
+            document.getElementById('nav').classList.add('scrolled');
+            document.getElementById('mail-icon').classList.add('cls-scroll')
+            document.getElementById('sendMail').classList.add('mail-scroll')
+        } else {
+            document.getElementById('nav').classList.remove('scrolled');
+            document.getElementById('mail-icon').classList.remove('cls-scroll')
+            document.getElementById('sendMail').classList.remove('mail-scroll')
+        }
+      });
+    },
+    validations:{
+        signUpEmail:{
+            required,
+            email
+        }
     },
     methods: {
         showMenu(){
