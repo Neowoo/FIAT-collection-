@@ -74,17 +74,18 @@
                             </b-form-group>                     
                         </div>
                     </div>
-                    <b-form-group class="my-4" label='帳號(信箱)：' label-cols-sm="3">
-                        <b-form-input class="col-8" @input="$v.signUpEmail.$touch()" v-model="signUpEmail"></b-form-input>
+                    <b-form-group class="my-4" label='帳號(信箱)：' label-cols-sm="3" >
+                        <b-form-input id='signUpEmail' class="col-8" @blur="$v.signUpEmail.$touch()" v-model="signUpEmail" :class='{invalid: $v.signUpEmail.$error}'></b-form-input>
+                        <p class='validInfo' v-if="!$v.signUpEmail.email">請輸入正確email格式</p>
                     </b-form-group>   
-                    <p></p>
-                    <div>{{$v}}</div>
                     <b-form-group class="mb-4" label='密碼：' label-cols-sm="3" >
-                        <b-form-input class="col-8" type='password' v-model="signUpPassword"></b-form-input>
+                        <b-form-input class="col-8" type='password' v-model="signUpPassword" @blur="$v.signUpPassword.$touch()" :class='{invalid: $v.signUpPassword.$error}'></b-form-input>
+                        <p class='validInfo' v-if="!$v.signUpPassword.minLen">請輸入 {{ $v.signUpPassword.$params.minLen.min }} 位數字及英文字母</p>
                     </b-form-group>                          
                     <b-form-group class="mb-4" label='確認：' label-cols-sm="3">
-                        <b-form-input class="col-8" type='password' v-model="SignUpConfirm"></b-form-input>
+                        <b-form-input class="col-8" type='password' v-model="signUpConfirm" @blur="$v.signUpConfirm.$touch()" :class='{invalid: $v.signUpConfirm.$error}'></b-form-input>
                     </b-form-group>                      
+                    <div>{{$v.signUpPassword}}</div>
                 </b-modal>
                 <!-- <b-modal></b-modal> -->
             <!-- </div> -->
@@ -136,7 +137,7 @@
 </template>
 <script>
 import axios from '../../src/signUpAxios.js'
-import {required, email} from 'vuelidate/lib/validators'
+import {required, email, minLength, sameAs} from 'vuelidate/lib/validators'
 
 export default {
     name: 'Opening',
@@ -186,7 +187,7 @@ export default {
             show: false,
             signUpEmail: '',
             signUpPassword: '',
-            SignUpConfirm: '',
+            signUpConfirm: '',
             signUpOk: true,
             logInEmail: '',
             logInPassword: '',
@@ -227,6 +228,14 @@ export default {
         signUpEmail:{
             required,
             email
+        },
+        signUpPassword: {
+            required,
+            minLen: minLength(6)
+        },
+        signUpConfirm: {
+            required,
+            sameAs: sameAs('signUpPassword')
         }
     },
     methods: {
@@ -258,7 +267,7 @@ export default {
             const formData = {
             signUpEmail: this.signUpEmail,
             signUpPassword: this.signUpPassword,
-            SignUpConfirm: this.SignUpConfirm,
+            signUpConfirm: this.signUpConfirm,
             }
 
             axios.post('/signupNewUser?key=AIzaSyAr7sqm-7JNNnHTNv2IzF-gU3c1VTciEoU', {
@@ -276,7 +285,7 @@ export default {
     }
 }
 </script>
-<style>
+<style scope>
     #nav{
         display: block;
         padding-right: 5rem;
@@ -527,8 +536,14 @@ export default {
         background-color: #fff;
         border-top: .1rem solid rgba(240, 240, 240, .8);
     }
-</style>
-<style scoped>
+    .invalid{
+        background-color: #f7cfcf !important;
+        border: 1px solid red !important;
+    }
+    .validInfo{
+        font-size: .8rem;
+        text-align: left;
+    }    
 
 </style>
 
