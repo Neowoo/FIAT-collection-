@@ -84,7 +84,6 @@
                     <b-form-group class="mb-4" label='確認：' label-cols-sm="3">
                         <b-form-input class="col-8" type='password' v-model="signUpConfirm" @blur="$v.signUpConfirm.$touch()" :class='{invalid: $v.signUpConfirm.$error}'></b-form-input>
                     </b-form-group>                      
-                    <div>{{$v.signUpPassword}}</div>
                 </b-modal>
                 <!-- <b-modal></b-modal> -->
             <!-- </div> -->
