@@ -52,6 +52,7 @@
                             <b-form-input class="col-8" type='password' v-model="logInPassword"></b-form-input>
                         </b-form-group>      
                         <p v-if='key_wrong'>※錯誤！請重新輸入</p>
+                        
                         <div class="d-flex justify-content-center">
                             <b-button variant="link" class=" text-right signUp" @click="signUpOk = true" v-b-modal.signUp>
                                 {{signUpBtn}}<eva-icon name='person-add' fill='orangered'></eva-icon>
@@ -76,6 +77,8 @@
                     <b-form-group class="my-4" label='帳號(信箱)：' label-cols-sm="3">
                         <b-form-input class="col-8" @input="$v.signUpEmail.$touch()" v-model="signUpEmail"></b-form-input>
                     </b-form-group>   
+                    <p></p>
+                    <div>{{$v}}</div>
                     <b-form-group class="mb-4" label='密碼：' label-cols-sm="3" >
                         <b-form-input class="col-8" type='password' v-model="signUpPassword"></b-form-input>
                     </b-form-group>                          
@@ -133,7 +136,7 @@
 </template>
 <script>
 import axios from '../../src/signUpAxios.js'
-import {required, email} from 'vuelidate'
+import {required, email} from 'vuelidate/lib/validators'
 
 export default {
     name: 'Opening',
@@ -525,5 +528,9 @@ export default {
         border-top: .1rem solid rgba(240, 240, 240, .8);
     }
 </style>
+<style scoped>
+
+</style>
+
 
 
