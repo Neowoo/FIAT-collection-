@@ -39,7 +39,6 @@
                     </div>
                 </div>
 
-
                 <b-button v-if="!logDone" class="after-resize_button position-relative navSignIn" v-b-modal.signIn>{{loginBtn}}</b-button>
 
                 <!-- Modal1 Component -->
@@ -394,7 +393,6 @@ export default {
             display: none !important;
         }
     }
-
 
     .page-header_button{
         display: block;
