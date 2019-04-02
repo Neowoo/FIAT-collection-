@@ -39,7 +39,6 @@
                     </div>
                 </div>
 
-
                 <b-button v-if="!logDone" class="after-resize_button position-relative navSignIn" v-b-modal.signIn>{{loginBtn}}</b-button>
 
                 <!-- Modal1 Component -->
@@ -52,6 +51,7 @@
                             <b-form-input class="col-8" type='password' v-model="logInPassword"></b-form-input>
                         </b-form-group>      
                         <p v-if='key_wrong'>※錯誤！請重新輸入</p>
+                        
                         <div class="d-flex justify-content-center">
                             <b-button variant="link" class=" text-right signUp" @click="signUpOk = true" v-b-modal.signUp>
                                 {{signUpBtn}}<eva-icon name='person-add' fill='orangered'></eva-icon>
@@ -73,15 +73,18 @@
                             </b-form-group>                     
                         </div>
                     </div>
-                    <b-form-group class="my-4" label='帳號(信箱)：' label-cols-sm="3">
-                        <b-form-input class="col-8" v-model="signUpEmail"></b-form-input>
+                    <b-form-group class="my-4" label='帳號(信箱)：' label-cols-sm="3" >
+                        <b-form-input id='signUpEmail' class="col-8" @blur="$v.signUpEmail.$touch()" v-model="signUpEmail" :class='{invalid: $v.signUpEmail.$error}'></b-form-input>
+                        <p class='validInfo' v-if="!$v.signUpEmail.email">請輸入正確email格式</p>
                     </b-form-group>   
                     <b-form-group class="mb-4" label='密碼：' label-cols-sm="3" >
-                        <b-form-input class="col-8" type='password' v-model="signUpPassword"></b-form-input>
+                        <b-form-input class="col-8" type='password' v-model="signUpPassword" @blur="$v.signUpPassword.$touch()" :class='{invalid: $v.signUpPassword.$error}'></b-form-input>
+                        <p class='validInfo' v-if="!$v.signUpPassword.minLen">請輸入 {{ $v.signUpPassword.$params.minLen.min }} 位數字及英文字母</p>
                     </b-form-group>                          
                     <b-form-group class="mb-4" label='確認：' label-cols-sm="3">
-                        <b-form-input class="col-8" type='password' v-model="SignUpConfirm"></b-form-input>
+                        <b-form-input class="col-8" type='password' v-model="signUpConfirm" @blur="$v.signUpConfirm.$touch()" :class='{invalid: $v.signUpConfirm.$error}'></b-form-input>
                     </b-form-group>                      
+                    <div>{{$v.signUpPassword}}</div>
                 </b-modal>
                 <!-- <b-modal></b-modal> -->
             <!-- </div> -->
@@ -132,20 +135,8 @@
     </div>
 </template>
 <script>
-import axios from '../../src/signUpAxios.js';
-window.addEventListener("scroll", function(){
-        var y = window.scrollY;
-        if(y > 250){
-            document.getElementById('nav').classList.add('scrolled');
-            document.getElementById('mail-icon').classList.add('cls-scroll')
-            document.getElementById('sendMail').classList.add('mail-scroll')
-        } else {
-            document.getElementById('nav').classList.remove('scrolled');
-            document.getElementById('mail-icon').classList.remove('cls-scroll')
-            document.getElementById('sendMail').classList.remove('mail-scroll')
-
-        }
-      });
+import axios from '../../src/signUpAxios.js'
+import {required, email, minLength, sameAs} from 'vuelidate/lib/validators'
 
 export default {
     name: 'Opening',
@@ -195,7 +186,7 @@ export default {
             show: false,
             signUpEmail: '',
             signUpPassword: '',
-            SignUpConfirm: '',
+            signUpConfirm: '',
             signUpOk: true,
             logInEmail: '',
             logInPassword: '',
@@ -217,6 +208,34 @@ export default {
       validFeedback:() => {
         return this.state === true ? 'Thank you' : ''
       }
+    },
+    created(){
+        window.addEventListener("scroll", function(){
+        var y = window.scrollY;
+        if(y > 250){
+            document.getElementById('nav').classList.add('scrolled');
+            document.getElementById('mail-icon').classList.add('cls-scroll')
+            document.getElementById('sendMail').classList.add('mail-scroll')
+        } else {
+            document.getElementById('nav').classList.remove('scrolled');
+            document.getElementById('mail-icon').classList.remove('cls-scroll')
+            document.getElementById('sendMail').classList.remove('mail-scroll')
+        }
+      });
+    },
+    validations:{
+        signUpEmail:{
+            required,
+            email
+        },
+        signUpPassword: {
+            required,
+            minLen: minLength(6)
+        },
+        signUpConfirm: {
+            required,
+            sameAs: sameAs('signUpPassword')
+        }
     },
     methods: {
         showMenu(){
@@ -247,7 +266,7 @@ export default {
             const formData = {
             signUpEmail: this.signUpEmail,
             signUpPassword: this.signUpPassword,
-            SignUpConfirm: this.SignUpConfirm,
+            signUpConfirm: this.signUpConfirm,
             }
 
             axios.post('/signupNewUser?key=AIzaSyAr7sqm-7JNNnHTNv2IzF-gU3c1VTciEoU', {
@@ -265,7 +284,7 @@ export default {
     }
 }
 </script>
-<style>
+<style scope>
     #nav{
         display: block;
         padding-right: 5rem;
@@ -374,7 +393,6 @@ export default {
             display: none !important;
         }
     }
-
 
     .page-header_button{
         display: block;
@@ -516,6 +534,13 @@ export default {
         background-color: #fff;
         border-top: .1rem solid rgba(240, 240, 240, .8);
     }
+    .invalid{
+        background-color: #f7cfcf !important;
+        border: 1px solid red !important;
+    }
+    .validInfo{
+        font-size: .8rem;
+        text-align: left;
+    }    
+
 </style>
-
-
