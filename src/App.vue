@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <navs></navs>
-    <router-view/>
+    <transition name="fade">
+      <router-view/>
+    </transition>
     <footerCompo></footerCompo>
   </div>
 </template>
@@ -43,5 +45,15 @@ export default {
   font-family: 'Noto Sans TC', sans-serif;
   /* height: 100vh; */
   overflow: hidden;
+}
+.fade-enter{
+  opacity: 0;
+}
+.fade-enter-active{
+  transition: opacity .5s;
+}
+.fade-leave-active{
+  transition: opacity .5s;
+  opacity: 0;
 }
 </style>
