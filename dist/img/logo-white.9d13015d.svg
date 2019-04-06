@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 86.523">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        font-size: 25px;
+        font-family: Helvetica;
+        letter-spacing: 0.2em;
+      }
+    </style>
+  </defs>
+  <g id="footerLogo" transform="translate(-167 -6913.477)">
+    <g id="logo" transform="translate(166.919 6913.958)">
+      <path id="Intersection_6" data-name="Intersection 6" class="cls-1" d="M55.719,52.522l-22.517-39-22.516,39H0L29.066,2.177A4.614,4.614,0,0,1,31.96,0h2.232a4.63,4.63,0,0,1,1.2.484,4.575,4.575,0,0,1,.6.416,5.909,5.909,0,0,1,1.688,1.869L66.4,52.522Z" transform="translate(0.081 -0.481)"/>
+      <path id="Rectangle_14" data-name="Rectangle 14" class="cls-1" d="M4.605,0h0A4.605,4.605,0,0,1,9.21,4.605V51.776a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4.605A4.605,4.605,0,0,1,4.605,0Z" transform="translate(28.67 0.266)"/>
+      <path id="Intersection_7" data-name="Intersection 7" class="cls-1" d="M0,4.232A4.325,4.325,0,0,1,1.38,1.059,4.632,4.632,0,0,1,3.371,0H5.6A4.645,4.645,0,0,1,6.8.484,4.575,4.575,0,0,1,7.4.9,5.85,5.85,0,0,1,8.825,2.35,4.67,4.67,0,0,1,9.21,4.232V21.485l-4.6-7.962L0,21.512Z" transform="translate(28.67 -0.481)"/>
+    </g>
+    <text id="FIAT" class="cls-2" transform="translate(167 6994)"><tspan x="0" y="0">FIAT</tspan></text>
+  </g>
+</svg>
