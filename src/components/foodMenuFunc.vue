@@ -3,7 +3,8 @@
         <h3 class="aboutUs-title pt-5 pb-1 mt-5">熱量<span>菜單</span></h3>     
         <img class=" position-fixed w-50" style="left: 30%; top: 40%;" src="../assets/purpleBG/purpleBG4.svg">  
         <div class="col-12 d-flex justify-content-center" id="tabList">
-            <ul class="nav nav-pills mb-3 col-7 position-fixed" id="pills-tab" role="tablist" style="overflow: scroll;height: 80vh; width: 10vw; left:5%; top: 15%;">
+            <div class="after-resize-circle"></div>
+            <ul class="before-resize nav nav-pills mb-3 col-7 position-fixed" id="pills-tab" role="tablist" style="overflow: scroll;height: 80vh; width: 10vw; left:5%; top: 15%;">
                 <li v-for="foodCate in foodCates" class="nav-item">
                     <a class="nav-link" :class="{active: foodCate.active}" :id="foodCates.id" data-toggle="pill" :href="foodCate.href" role="tab" :aria-controls="foodCate.a_control">
                         <h4>{{foodCate.title}}</h4>
@@ -12,10 +13,10 @@
                 </li>                                                                                          
             </ul>
         </div>
-        <div class="tab-content mt-5 offset-3 col-8" id="pills-tabContent">
+        <div class="tab-content mt-5 offset-1 offset-sm-3 col-10 col-sm-8" id="pills-tabContent">
             <div class="tab-pane w-100 fade show active" id="lunchBox" role="tabpanel" aria-labelledby="lunchBox-tab">
                 <div class="row">
-                    <div v-for="foodCont_lunchBox in foodConts_lunchBox" class="col-4 mb-5">
+                    <div v-for="foodCont_lunchBox in foodConts_lunchBox" class="col-12 col-sm-4 mb-5">
                         <div class="tab-pane-list p-2">
                             <img class="menuPic" :src="foodCont_lunchBox.src">
                             <hr>
@@ -273,6 +274,14 @@
     .menuPic{
         width: 95%; 
         height: 15rem;
+    }
+    @media screen and (max-width: 420px) {
+        .before-resize{
+            display: none;
+        }
+        .after-resize-circle{
+            
+        }
     }
 </style>
 
