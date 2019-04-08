@@ -1,7 +1,7 @@
 <template>
   <section id="foodMenu" class="page-section menu py-4 py-lg-5">
     <div class="after-resize-menuBtn" @click="showMenu = !showMenu"></div>
-    <div class="after-resize-foodMenu" :class="{menuSelected: showMenu}">
+    <div class="after-resize-foodMenu" v-show="showMenu">
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li v-for="foodCate in foodCates" class="nav-item">
           <a

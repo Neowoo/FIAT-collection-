@@ -1,10 +1,29 @@
 <template>
   <section id="trainingEquip" class="page-section w-100 py-5 mt-5 mb-5">
+    <div class="after-resized-menuBtn position-fixed" @click="showMenu = !showMenu"></div>
+    <div
+      v-show="showMenu"
+      class="after-resized-equipMenu position-fixed nav nav-pills justify-content-center px-5"
+      id="v-pills-tab"
+      role="tablist"
+      aria-orientation="vertical"
+    >
+      <a
+        v-for="links in tabLinks"
+        class="nav-link equipMenu"
+        :class="{active: links.show}"
+        :id="links.id"
+        data-toggle="pill"
+        :href="links.href"
+        :data-tab-name="links.id"
+        @click="showMenu = !showMenu"
+      >{{links.name}}</a>
+    </div>    
     <img class="equip-BG1 position-absolute equipBG" src="../assets/purpleBG/purpleBG6.png">
     <img class="equip-BG2 position-absolute equipBG" src="../assets/purpleBG/purpleBG7.png">
     <div class="row d-flex justify-content-center" style="margin-top: 10%;">
       <div
-        class="position-fixed nav nav-pills justify-content-center px-5"
+        class="before-resized-equipMenu position-fixed nav nav-pills justify-content-center px-5"
         id="v-pills-tab"
         role="tablist"
         aria-orientation="vertical"
@@ -28,13 +47,13 @@
           role="tabpanel"
           aria-labelledby="multiFunc-tab"
         >
-          <div class="offset-4 col-4">
+          <div class="offset-sm-4 col-sm-4 col-7 offset-2">
             <img src="../assets/videoImg/forEquip/1.jpg">
           </div>
           <div class="mt-5 col-12">
             <div class="row container-fluid mt-5">
               <div
-                class="videoPlace p-4 mr-5 offset-2 col-6 tab-content d-flex justify-content-center align-items-center"
+                class="videoPlace p-4 mr-5 offset-sm-2 col-12 col-sm-6 tab-content d-flex justify-content-center align-items-center"
               >
                 <div
                   class="tab-pane fade show embed-responsive embed-responsive-16by9"
@@ -46,11 +65,12 @@
                   <iframe
                     :src="multFunc.videolink"
                     frameborder="0"
+                    allowfullscreen
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   ></iframe>
                 </div>
               </div>
-              <ul class="col-3 myTab" role="tablist">
+              <ul class="col-sm-3 col-12 myTab" role="tablist">
                 <li class="nav-item" v-for="multFunc in multFuncVideo">
                   <a
                     class="videoList nav-link col-12"
@@ -60,13 +80,9 @@
                     :href="multFunc.linkNum"
                     role="tab"
                   >
-                    <!-- <span class="col-4"> -->
-                    <!-- </span> -->
                     <div class="row listContent">
                       <img class="col-5" :src="multFunc.link">
-                      <!-- <div class="col-7 d-flex align-items-center"> -->
                       <p class="col-7 d-flex align-items-center" style="margin: 0;">{{multFunc.videoName}}</p>
-                      <!-- </div> -->
                     </div>
                   </a>
                 </li>
@@ -82,13 +98,13 @@
           role="tabpanel"
           aria-labelledby="selfCircle-tab"
         >
-          <div class="offset-4 col-4">
+          <div class="offset-sm-4 col-sm-4 col-7 offset-2">
             <img src="../assets/videoImg/forEquip/橢圓機.jpg" alt>
           </div>
           <div class="mt-5 col-12">
             <div class="row container-fluid">
               <div
-                class="videoPlace p-4 mr-5 offset-2 col-6 tab-content d-flex justify-content-center align-items-center"
+                class="videoPlace p-4 mr-5 offset-sm-2 col-sm-6 col-12 tab-content d-flex justify-content-center align-items-center"
               >
                 <div
                   class="tab-pane fade show embed-responsive embed-responsive-16by9"
@@ -100,11 +116,12 @@
                   <iframe
                     :src="selfCircle.videolink"
                     frameborder="0"
+                    allowfullscreen
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   ></iframe>
                 </div>
               </div>
-              <ul class=" col-3 myTab" role="tablist">
+              <ul class=" col-sm-3 col-12 myTab" role="tablist">
                 <li class="nav-item col-12" v-for="selfCircle in selfCircleVideo">
                   <a
                     class="videoList nav-link col-12"
@@ -136,13 +153,13 @@
           role="tabpanel"
           aria-labelledby="butterfly-tab"
         >
-          <div class="offset-4 col-4">
+          <div class="offset-sm-4 col-sm-4 col-7 offset-2">
             <img src="../assets/videoImg/forEquip/蝴蝶機.jpg" alt>
           </div>
           <div class="mt-5 col-12">
             <div class="row container-fluid">
               <div
-                class="videoPlace p-4 mr-5 offset-2 col-6 tab-content d-flex justify-content-center align-items-center"
+                class="videoPlace p-4 mr-5 offset-sm-2 col-sm-6 col-12 tab-content d-flex justify-content-center align-items-center"
               >
                 <div
                   class="tab-pane fade show embed-responsive embed-responsive-16by9"
@@ -154,11 +171,12 @@
                   <iframe
                     :src="butterfly.videolink"
                     frameborder="0"
+                    allowfullscreen
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   ></iframe>
                 </div>
               </div>
-              <ul class="col-3 myTab" role="tablist">
+              <ul class="col-sm-3 col-12 myTab" role="tablist">
                 <li class="nav-item col-12" v-for="butterfly in butterflyVideo">
                   <a
                     class="videoList nav-link col-12"
@@ -168,13 +186,9 @@
                     :href="butterfly.linkNum"
                     role="tab"
                   >
-                    <!-- <span class="col-4"> -->
-                    <!-- </span> -->
                     <div class="row listContent d-flex align-items-center">
                       <img class="col-5" :src="butterfly.link">
-                      <!-- <div class="col-7 d-flex align-items-center"> -->
                       <p class="col-7 d-flex align-items-center" style="margin: 0;">{{butterfly.videoName}}</p>
-                      <!-- </div> -->
                     </div>
                   </a>
                 </li>
@@ -189,13 +203,13 @@
           role="tabpanel"
           aria-labelledby="smithFrame-tab"
         >
-          <div class="offset-4 col-4">
+          <div class="offset-sm-4 col-sm-4 col-7 offset-2">
             <img src="../assets/videoImg/forEquip/史密斯架.jpg" alt>
           </div>
           <div class="mt-5 col-12">
             <div class="row container-fluid">
               <div
-                class="videoPlace p-4 mr-5 offset-2 col-6 tab-content d-flex justify-content-center align-items-center"
+                class="videoPlace p-4 mr-5 offset-sm-2 col-sm-6 col-12 tab-content d-flex justify-content-center align-items-center"
               >
                 <div
                   class="tab-pane fade show embed-responsive embed-responsive-16by9"
@@ -207,11 +221,12 @@
                   <iframe
                     :src="smithFrame.videolink"
                     frameborder="0"
+                    allowfullscreen
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   ></iframe>
                 </div>
               </div>
-              <ul class="col-3 myTab" role="tablist">
+              <ul class="col-sm-3 col-12 myTab" role="tablist">
                 <li class="nav-item col-12" v-for="smithFrame in smithFrameVideo">
                   <a
                     class="videoList nav-link col-12"
@@ -221,13 +236,9 @@
                     :href="smithFrame.linkNum"
                     role="tab"
                   >
-                    <!-- <span class="col-4"> -->
-                    <!-- </span> -->
                     <div class="row listContent d-flex align-items-center">
                       <img class="col-5" :src="smithFrame.link">
-                      <!-- <div class="col-7 d-flex align-items-center"> -->
                       <p class="col-7 d-flex align-items-center" style="margin: 0;">{{smithFrame.videoName}}</p>
-                      <!-- </div> -->
                     </div>
                   </a>
                 </li>
@@ -242,13 +253,13 @@
           role="tabpanel"
           aria-labelledby="benchPress-tab"
         >
-          <div class="offset-4 col-4">
+          <div class="offset-sm-4 col-sm-4 col-7 offset-2">
             <img src="../assets/videoImg/forEquip/臥推架.jpg">
           </div>
           <div class="mt-5 col-12">
             <div class="row container-fluid">
               <div
-                class="videoPlace p-4 mr-5 offset-2 col-6 tab-content d-flex justify-content-center align-items-center"
+                class="videoPlace p-4 mr-5 offset-sm-2 col-sm-6 col-12 tab-content d-flex justify-content-center align-items-center"
               >
                 <div
                   class="tab-pane fade show embed-responsive embed-responsive-16by9"
@@ -260,11 +271,12 @@
                   <iframe
                     :src="benchPress.videolink"
                     frameborder="0"
+                    allowfullscreen
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   ></iframe>
                 </div>
               </div>
-              <ul class="col-3 myTab" role="tablist">
+              <ul class="col-sm-3 col-12 myTab" role="tablist">
                 <li class="nav-item col-12" v-for="benchPress in benchPressVideo">
                   <a
                     class="videoList nav-link col-12"
@@ -274,13 +286,9 @@
                     :href="benchPress.linkNum"
                     role="tab"
                   >
-                    <!-- <span class="col-4"> -->
-                    <!-- </span> -->
                     <div class="row listContent d-flex align-items-center">
                       <img class="col-5" :src="benchPress.link">
-                      <!-- <div class="col-7 d-flex align-items-center"> -->
                       <p class="col-7 d-flex align-items-center" style="margin: 0;">{{benchPress.videoName}}</p>
-                      <!-- </div> -->
                     </div>
                   </a>
                 </li>
@@ -295,13 +303,13 @@
           role="tabpanel"
           aria-labelledby="bellBench-tab"
         >
-          <div class="offset-4 col-4">
+          <div class="offset-sm-4 col-sm-4 col-7 offset-2">
             <img src="../assets/videoImg/forEquip/啞鈴凳.jpg">
           </div>
           <div class="mt-5 col-12">
             <div class="row container-fluid">
               <div
-                class="videoPlace p-4 mr-5 offset-2 col-6 tab-content d-flex justify-content-center align-items-center"
+                class="videoPlace p-4 mr-5 offset-sm-2 col-sm-6 col-12 tab-content d-flex justify-content-center align-items-center"
               >
                 <div
                   class="tab-pane fade show embed-responsive embed-responsive-16by9"
@@ -313,11 +321,12 @@
                   <iframe
                     :src="bellBench.videolink"
                     frameborder="0"
+                    allowfullscreen
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   ></iframe>
                 </div>
               </div>
-              <ul class="col-3 myTab" role="tablist">
+              <ul class="col-sm-3 col-12 myTab" role="tablist">
                 <li class="nav-item col-12" v-for="bellBench in bellBenchVideo">
                   <a
                     class="videoList nav-link col-12"
@@ -327,13 +336,9 @@
                     :href="bellBench.linkNum"
                     role="tab"
                   >
-                    <!-- <span class="col-4"> -->
-                    <!-- </span> -->
                     <div class="row listContent d-flex align-items-center">
                       <img class="col-5" :src="bellBench.link">
-                      <!-- <div class="col-7 d-flex align-items-center"> -->
                       <p class="col-7 d-flex align-items-center" style="margin: 0;">{{bellBench.videoName}}</p>
-                      <!-- </div> -->
                     </div>
                   </a>
                 </li>
@@ -343,13 +348,13 @@
         </div>
 
         <div class="tab-pane w-100 fade" id="lifter" role="tabpanel" aria-labelledby="lifter-tab">
-          <div class="offset-4 col-4">
+          <div class="offset-sm-4 col-sm-4 col-7 offset-2">
             <img src="../assets/videoImg/forEquip/提踵器.jpg">
           </div>
           <div class="mt-5 col-12">
             <div class="row container-fluid">
               <div
-                class="videoPlace p-4 mr-5 offset-2 col-6 tab-content d-flex justify-content-center align-items-center"
+                class="videoPlace p-4 mr-5 offset-sm-2 col-sm-6 col-12 tab-content d-flex justify-content-center align-items-center"
               >
                 <div
                   class="tab-pane fade show embed-responsive embed-responsive-16by9"
@@ -361,11 +366,12 @@
                   <iframe
                     :src="lifter.videolink"
                     frameborder="0"
+                    allowfullscreen
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   ></iframe>
                 </div>
               </div>
-              <ul class="col-3 myTab" role="tablist">
+              <ul class="col-sm-3 col-12 myTab" role="tablist">
                 <li class="nav-item col-12" v-for="lifter in lifterVideo">
                   <a
                     class="videoList nav-link col-12"
@@ -375,13 +381,9 @@
                     :href="lifter.linkNum"
                     role="tab"
                   >
-                    <!-- <span class="col-4"> -->
-                    <!-- </span> -->
                     <div class="row listContent d-flex align-items-center">
                       <img class="col-5" :src="lifter.link">
-                      <!-- <div class="col-7 d-flex align-items-center"> -->
                       <p class="col-7 d-flex align-items-center" style="margin: 0;">{{lifter.videoName}}</p>
-                      <!-- </div> -->
                     </div>
                   </a>
                 </li>
@@ -415,6 +417,7 @@ export default {
   },
   data() {
     return {
+      showMenu: false,
       homeOff: false,
       tabLinks: [
         {
@@ -682,6 +685,42 @@ export default {
   background-color: rgba(238, 163, 75, 0.4);
   padding: 0.5rem;
   border-radius: 1rem;
+}
+@media screen and (max-width: 420px){
+  .before-resized-equipMenu{
+    display: none;
+  }
+  .after-resized-menuBtn{
+    width: 3rem;
+    left: 2%;
+    height: 3rem;
+    clip-path: circle(45% at 50% 50%);
+    background: #efa34b url('../assets/muscleMap/menu-after-resized.svg') no-repeat center;
+    background-size: 40%;
+    z-index: 10;
+  }
+  .after-resized-menuBtn:hover{
+    animation: menuScale 1s infinite;
+  }
+  @keyframes menuScale {
+    10%{
+      background-size: 50%;
+      background-color: #b90024;
+    }
+  }
+  .after-resized-equipMenu{
+    background-color: #efa34b;
+    width: 100%;
+    top: 12.5%;
+  }
+  .nav-pills .nav-link.equipMenu.active{
+    background-image: linear-gradient(to right, #efa34b, #b90024) !important;
+  }
+}
+@media screen and (min-width: 420px) {
+  .after-resized-equipMenu{
+    display: none;
+  }
 }
 </style>
 

@@ -1,7 +1,7 @@
 <template>
     <div id="nav" class="position-fixed">
         <div class="container-fluid flex-row">
-            <eva-icon @click="showMenu" class="after-resize-menu position-fixed" name="menu" animation="pulse" fill="#fff"></eva-icon>
+            <eva-icon @click="menuHide = !menuHide" class="after-resize-menu position-fixed" name="menu" animation="pulse" fill="#fff"></eva-icon>
             <div class="home-page-1stlogo">
                 <router-link tag='div' :to="{name: 'home'}" class=" d-flex justify-content-center align-items-center">
                     <!-- <img id='homeLogo' src="../assets/logo.svg" alt="FIAT"> -->
@@ -113,20 +113,20 @@
             </div>     
         </div>
 
-        <div v-if="menuHide" class="row menu-scroll-hide">
+        <div v-show="menuHide" class="row menu-scroll-hide">
             <b-button v-if="!logDone" class="navSignIn" v-b-modal.signIn>{{loginBtn}}</b-button>
-            <div class="col-12">
-                <router-link  tag="li" class=" navbarLi" :to='{name: "home", hash: "#aboutUs"}'>
+            <div class="col-12" @click="menuHide = !menuHide" >
+                <router-link tag="li" class=" navbarLi" :to='{name: "home", hash: "#aboutUs"}'>
                     關於我們
                 </router-link>                
             </div>
-            <div class="col-12">
-                <router-link  tag="li" class="navbarLi" :to='{name: "home", hash: "#foodMenu"}'>
+            <div class="col-12" @click="menuHide = !menuHide" >
+                <router-link tag="li" class="navbarLi" :to='{name: "home", hash: "#foodMenu"}'>
                     熱量飲食
                 </router-link>                 
             </div>
-            <div class="col-12">
-                <router-link  tag="li" class="navbarLi" :to='{name: "home", hash: "#trainingEdu"}'>
+            <div class="col-12" @click="menuHide = !menuHide" >
+                <router-link tag="li" class="navbarLi" :to='{name: "home", hash: "#trainingEdu"}'>
                     健身教學
                 </router-link>                
             </div>
@@ -237,9 +237,6 @@ export default {
         }
     },
     methods: {
-        showMenu(){
-            this.menuHide = !this.menuHide;
-        },
         login(evt){
              const logInData = {
                  logInEmail: this.logInEmail,

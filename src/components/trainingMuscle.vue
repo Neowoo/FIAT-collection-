@@ -1,10 +1,9 @@
 <template>
   <section class="page-section w-100 py-5 mt-5 mb-5">
-    <img class="equip-BG1 position-absolute equipBG" src="../assets/purpleBG/purpleBG6.png">
-    <img class="equip-BG2 position-absolute equipBG" src="../assets/purpleBG/purpleBG7.png">
-    <div id="muscleMenu" class="row d-flex justify-content-center" style="margin-top: 5%;">
-      <div
-        class="nav nav-pills menuPoint h-100 px-5 position-fixed d-flex flex-column"
+    <div class="after-resized-menuBtn" @click="showMenu = !showMenu"></div>
+    <div class="after-resized-muscleMenu position-fixed" v-show="showMenu">
+     <div
+        class="nav nav-pills menuPoint d-flex flex-column"
         id="v-pills-tab"
         role="tablist"
         aria-orientation="vertical"
@@ -18,23 +17,29 @@
           data-toggle="pill"
           :href="point.href"
           :data-tab-name="point.dataName"
+          @click="showMenu = !showMenu"
         >{{point.dataName}}</a>
-        <!-- <a
-          class="nav-link position-absolute"
-          id="arm-tab"
-          data-toggle="pill"
-          href="#arm"
-          data-tab-name="二頭肌"
-          style="left: 43.5%; top: 24%;"
-        ></a>
+      </div>
+    </div>
+    <img class="equip-BG1 position-absolute equipBG" src="../assets/purpleBG/purpleBG6.png">
+    <img class="equip-BG2 position-absolute equipBG" src="../assets/purpleBG/purpleBG7.png">
+    <div id="muscleMenu" class="row d-flex justify-content-center" style="margin-top: 5%;">
+      <div
+        class="nav nav-pills menuPoint h-100 px-5 position-fixed d-flex flex-column"
+        id="v-pills-tab"
+        role="tablist"
+        aria-orientation="vertical"
+      >
         <a
-          class="nav-link position-absolute"
-          id="butterfly-tab"
+          v-for="(point,index) in musclePoint"
+          :key="index"
+          class="before-resize nav-link"
+          :class="{active: point.active}"
+          :id="point.id"
           data-toggle="pill"
-          href="#butterfly"
-          data-tab-name="胸大肌"
-          style="left: 47%; top: 21%;"
-        ></a>-->
+          :href="point.href"
+          :data-tab-name="point.dataName"
+        >{{point.dataName}}</a>
       </div>
       <div class="tab-content col-12 row" id="v-pills-tabContent" style="text-align: left;">
         <!-- 肩 -->
@@ -45,11 +50,11 @@
           aria-labelledby="shoulder-tab"
         >
           <div class="d-flex justify-content-center">
-            <img class="musclePic" src="../assets/muscleMap/三角肌.svg">
+            <img class=" col-6 col-sm-3 musclePic" src="../assets/muscleMap/三角肌.svg">
           </div>
           <div class="mt-5 col-12">
             <div class="row container-fluid mt-5">
-              <div class="mr-5 p-4 col-6 offset-1 tab-content videoPlace">
+              <div class="mr-5 p-4 col-12 col-sm-6 offset-sm-1 tab-content videoPlace">
                 <div
                   class="tab-pane fade show embed-responsive embed-responsive-16by9"
                   v-for="(shoulder,index) in shoulderVideo"
@@ -61,12 +66,13 @@
                   <iframe
                     :src="shoulder.videolink"
                     frameborder="0"
+                    allowfullscreen
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   ></iframe>
                 </div>
               </div>
 
-              <ul class="nav col-4 justify-content-between myTab" role="tablist">
+              <ul class="nav col-12 col-sm-4 justify-content-between myTab" role="tablist">
                 <li class="col-12 nav-item" v-for="shoulder in shoulderVideo">
                   <a
                     class="nav-link col-12"
@@ -90,11 +96,11 @@
         <!-- 手臂 -->
         <div class="tab-pane w-100 fade" id="arm" role="tabpanel" aria-labelledby="arm-tab">
           <div class="d-flex justify-content-center">
-            <img class="musclePic" src="../assets/muscleMap/二頭肌.svg" alt>
+            <img class="col-6 col-sm-3 musclePic" src="../assets/muscleMap/二頭肌.svg" alt>
           </div>
           <div class="mt-5 col-12">
             <div class="row container-fluid mt-5">
-              <div class="mr-5 p-4 col-6 offset-1 tab-content videoPlace">
+              <div class="mr-5 p-4 col-12 col-sm-6 offset-sm-1 tab-content videoPlace">
                 <div
                   class="tab-pane fade show embed-responsive embed-responsive-16by9"
                   v-for="arm in armVideo"
@@ -105,12 +111,13 @@
                   <iframe
                     :src="arm.videolink"
                     frameborder="0"
+                    allowfullscreen
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   ></iframe>
                 </div>
               </div>
 
-              <ul class="nav col-4 justify-content-between myTab" role="tablist">
+              <ul class="nav col-12 col-sm-4 justify-content-between myTab" role="tablist">
                 <li class="col-12 nav-item" v-for="arm in armVideo">
                   <a
                     class="nav-link col-12"
@@ -139,11 +146,11 @@
           aria-labelledby="chest-tab"
         >
           <div class="d-flex justify-content-center">
-            <img class="musclePic" src="../assets/muscleMap/胸大肌.svg" alt>
+            <img class="col-6 col-sm-3 musclePic" src="../assets/muscleMap/胸大肌.svg" alt>
           </div>
           <div class="mt-5 col-12">
             <div class="row container-fluid mt-5">
-              <div class="mr-5 p-4 col-6 offset-1 tab-content videoPlace">
+              <div class="mr-5 p-4 col-12 col-sm-6 offset-sm-1 tab-content videoPlace">
                 <div
                   class="tab-pane fade show embed-responsive embed-responsive-16by9"
                   v-for="chest in chestVideo"
@@ -154,12 +161,13 @@
                   <iframe
                     :src="chest.videolink"
                     frameborder="0"
+                    allowfullscreen
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   ></iframe>
                 </div>
               </div>
 
-              <ul class="nav col-4 justify-content-between myTab" role="tablist">
+              <ul class="nav col-12 col-sm-4 justify-content-between myTab" role="tablist">
                 <li class="col-12 nav-item" v-for="chest in chestVideo">
                   <a
                     class="nav-link col-12"
@@ -188,11 +196,11 @@
           aria-labelledby="belly-tab"
         >
           <div class="d-flex justify-content-center">
-            <img class="musclePic" src="../assets/muscleMap/腹部.svg">
+            <img class="col-6 col-sm-3 musclePic" src="../assets/muscleMap/腹部.svg">
           </div>
           <div class="mt-5 col-12">
             <div class="row container-fluid mt-5">
-              <div class="mr-5 p-4 col-6 offset-1 tab-content videoPlace">
+              <div class="mr-5 p-4 col-12 col-sm-6 offset-sm-1 tab-content videoPlace">
                 <div
                   class="tab-pane fade show embed-responsive embed-responsive-16by9"
                   v-for="belly in bellyVideo"
@@ -203,12 +211,13 @@
                   <iframe
                     :src="belly.videolink"
                     frameborder="0"
+                    allowfullscreen
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   ></iframe>
                 </div>
               </div>
 
-              <ul class="nav col-4 justify-content-between myTab" role="tablist">
+              <ul class="nav col-12 col-sm-4 justify-content-between myTab" role="tablist">
                 <li class="col-12 nav-item" v-for="belly in bellyVideo">
                   <a
                     class="nav-link col-12"
@@ -236,11 +245,11 @@
           aria-labelledby="back-tab"
         >
           <div class="d-flex justify-content-center">
-            <img class="musclePic" src="../assets/muscleMap/背部.svg">
+            <img class="col-6 col-sm-3 musclePic" src="../assets/muscleMap/背部.svg">
           </div>
           <div class="mt-5 col-12">
             <div class="row container-fluid mt-5">
-              <div class="mr-5 p-4 col-6 offset-1 tab-content videoPlace">
+              <div class="mr-5 p-4 col-12 col-sm-6 offset-sm-1 tab-content videoPlace">
                 <div
                   class="tab-pane fade show embed-responsive embed-responsive-16by9"
                   v-for="back in backVideo"
@@ -251,12 +260,13 @@
                   <iframe
                     :src="back.videolink"
                     frameborder="0"
+                    allowfullscreen
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   ></iframe>
                 </div>
               </div>
 
-              <ul class="nav col-4 justify-content-between myTab" role="tablist">
+              <ul class="nav col-12 col-sm-4 justify-content-between myTab" role="tablist">
                 <li class="col-12 nav-item" v-for="back in backVideo">
                   <a
                     class="nav-link col-12"
@@ -285,11 +295,11 @@
           aria-labelledby="hip-tab"
         >
           <div class="d-flex justify-content-center">
-            <img class="musclePic" src="../assets/muscleMap/臀部.svg">
+            <img class="col-6 col-sm-3 musclePic" src="../assets/muscleMap/臀部.svg">
           </div>
           <div class="mt-5 col-12">
             <div class="row container-fluid mt-5">
-              <div class="mr-5 p-4 col-6 offset-1 tab-content videoPlace">
+              <div class="mr-5 p-4 col-sm-6 offset-sm-1 col-12 tab-content videoPlace">
                 <div
                   class="tab-pane fade show embed-responsive embed-responsive-16by9"
                   v-for="hip in hipVideo"
@@ -300,12 +310,13 @@
                   <iframe
                     :src="hip.videolink"
                     frameborder="0"
+                    allowfullscreen
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   ></iframe>
                 </div>
               </div>
 
-              <ul class="nav col-4 justify-content-between myTab" role="tablist">
+              <ul class="nav col-12 col-sm-4 justify-content-between myTab" role="tablist">
                 <li class="col-12 nav-item" v-for="hip in hipVideo">
                   <a
                     class="nav-link col-12"
@@ -334,11 +345,11 @@
           aria-labelledby="leg-tab"
         >
           <div class="d-flex justify-content-center">
-            <img class="musclePic" src="../assets/muscleMap/臀部.svg">
+            <img class="col-6 col-sm-3 musclePic" src="../assets/muscleMap/臀部.svg">
           </div>
           <div class="mt-5 col-12">
             <div class="row container-fluid mt-5">
-              <div class="mr-5 p-4 col-6 offset-1 tab-content videoPlace">
+              <div class="mr-5 p-4 col-sm-6 offset-sm-1 col-12 tab-content videoPlace">
                 <div
                   class="tab-pane fade show embed-responsive embed-responsive-16by9"
                   v-for="leg in legVideo"
@@ -349,12 +360,13 @@
                   <iframe
                     :src="leg.videolink"
                     frameborder="0"
+                    allowfullscreen
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   ></iframe>
                 </div>
               </div>
 
-              <ul class="nav col-4 justify-content-between myTab" role="tablist">
+              <ul class="nav col-12 col-sm-4 justify-content-between myTab" role="tablist">
                 <li class="col-12 nav-item" v-for="leg in legVideo">
                   <a
                     class="nav-link col-12"
@@ -395,6 +407,7 @@ export default {
   name: "trainingEdu",
   data() {
     return {
+      showMenu: false,
       homeOff: false,
       musclePoint: [
         {
@@ -684,7 +697,7 @@ iframe{
   border-radius: 2rem;
   background-color: rgba(188, 17, 39, 0.8);
 }
-.musclePic {
+.col-6 col-sm-3 musclePic {
   z-index: -30;
   width: 20% !important;
   height: 100% !important;
@@ -693,6 +706,42 @@ iframe{
   z-index: 10;
   /* width: 50%; */
   left: -3%;
+}
+@media screen and (max-width: 420px) {
+  .before-resize{
+    display: none;
+  }
+  .after-resized-menuBtn{
+    position: fixed;
+    left: 2%;;
+    width: 3.5rem;
+    height: 3.5rem;
+    clip-path: circle(45% at 50% 50%);
+    background: #EFA34B url('../assets/muscleMap/menu-after-resized.svg') no-repeat center;
+    background-size: 40%;
+    z-index: 11;
+  }
+  .after-resized-menuBtn:hover{
+    animation: menuScale 1s infinite;
+  }
+  @keyframes menuScale {
+    10%{
+      background-size: 50%;
+      background-color: #B90024;
+    }
+  }
+  .after-resized-muscleMenu{
+    top: 12.5%;
+    width: 100%;
+    background-color: #EFA34B;
+    z-index: 12;
+  }
+  .menuPoint .nav-link {
+    width: 95%;
+  }
+  .nav-pills .nav-link.active{
+    background-image: linear-gradient(to right, #EFA34B, #B90024) !important;
+  }
 }
 </style>
 
