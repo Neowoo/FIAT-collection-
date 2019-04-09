@@ -1,11 +1,10 @@
 <template>
   <section class="page-section top-hero d-flex align-items-center">
     <div class="after-resize-page container-fluid align-items-end">
-      <div class="row">
-        <img
+        <div
           class="page-section_img_right position-absolute"
-          src="../assets/purpleBG/purpleBG1.svg"
-        >
+        ></div>
+      <div class="row">
         <img
           class="page-section_img_left position-absolute d-none d-lg-inline-block"
           src="../assets/purpleBG/purpleBG2.svg"
@@ -156,6 +155,7 @@ export default {
 }
 .page-section {
   position: relative;
+  max-width: 1680px;
 }
 .container-fluid {
   width: 100%;
@@ -172,10 +172,11 @@ export default {
   /* height: 100%; */
 }
 .page-section .page-section_img_right {
-  top: 0%;
+  background: url('../assets/purpleBG/purpleBG1.svg') no-repeat top center;
+  background-size: contain;
   right: 0;
+  width: 50%;
   height: 100%;
-  margin-left: auto;
 }
 
 .page-section .page-section_img_left {

@@ -421,7 +421,7 @@ export default {
 
     }
     .form-input{
-        padding: .5rem 1rem;
+        padding: .5rem .5rem;
         font-size: .875rem;
     }
 

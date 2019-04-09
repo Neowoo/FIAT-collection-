@@ -36,6 +36,9 @@ export default {
 };
 </script>
 <style>
+    *{
+        font-family: 'Noto Sans TC', sans-serif;
+    }
 </style>
 
 
