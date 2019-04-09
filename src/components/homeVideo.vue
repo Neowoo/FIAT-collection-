@@ -87,7 +87,6 @@ export default {
     }
     .firstBG{
         top: -20%;
-        right:
     }
 </style>
 

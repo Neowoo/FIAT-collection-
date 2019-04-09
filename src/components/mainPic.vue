@@ -126,8 +126,8 @@ export default {
     display: none;
   }
   .page-section {
-    margin-top: 30%;
-    padding-top: 35%;
+    padding-top: 20%;
+    padding-bottom: 30%;
   }  
 }
 @media screen and (max-width: 1390px) {
@@ -142,7 +142,7 @@ export default {
     margin-bottom: 15%;
   }
   .after-resize-page {
-    height: 100vh;
+    height: 100%;
   }
 }
 </style>
@@ -173,9 +173,9 @@ export default {
 }
 .page-section .page-section_img_right {
   top: 0%;
-  right: -23%;
-  width: 95%;
-  height: 95%;
+  right: 0;
+  height: 100%;
+  margin-left: auto;
 }
 
 .page-section .page-section_img_left {

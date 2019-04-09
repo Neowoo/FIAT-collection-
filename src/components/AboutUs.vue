@@ -1,5 +1,5 @@
 <template>
-  <section id="aboutUs" class="page-section rating py-4 py-lg-5">
+  <section id="aboutUs" class="page-section rating my-4 py-lg-5">
     <span class="position-absolute aboutBG1 rellax offset-3">
       <img src="../assets/BG-dumbell/dumbbell2.svg">
     </span>
