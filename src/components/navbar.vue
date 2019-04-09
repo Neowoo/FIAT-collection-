@@ -101,8 +101,8 @@
                                 <line id="Line_1-2" data-name="Line 1" class="cls-2" x2="10" transform="translate(6.524 13.5)"/>
                             </g>
                         </svg>
-                        <input type="text" placeholder='輸入您的email' class="form-input">
                     </div>
+                    <input type="text" placeholder='輸入您的email' class="form-input">
                     <button type="submit" class=" ml-auto form-input-btn d-inline-block">
                         {{sendMail}}
                         <img src="../assets/papperPlane.svg">
@@ -387,10 +387,6 @@ export default {
             display: none !important;
         }
     }
-    .mail-send-area{
-
-    }
-
     .page-header_button{
         display: block;
         margin-left: 15%;
@@ -421,7 +417,8 @@ export default {
 
     }
     .form-input{
-        padding: .5rem .5rem;
+        padding: 0 .5rem;
+        margin: 0 1rem;
         font-size: .875rem;
     }
 
