@@ -16,18 +16,6 @@ export default {
   components:{
     navs,
     footerCompo
-  },
-  data(){
-    return{
-      homeShow: true,
-      trainEQshow: false
-    }
-  },
-  methods: {
-    makeChange: function (msg) {
-      this.homeShow = msg;
-      this.trainEQshow = !msg;
-    }
   }
 }
 </script>

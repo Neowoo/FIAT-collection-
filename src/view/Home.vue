@@ -38,6 +38,7 @@ export default {
 <style>
     *{
         font-family: 'Noto Sans TC', sans-serif;
+        padding: 0;
     }
 </style>
 
