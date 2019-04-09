@@ -82,7 +82,7 @@
         </svg>
 
         <div class="page-section_adver text-left col-12 col-lg-4 offset-lg-1 order-1 order-lg-0">
-          <h1 class=" col-12  col-lg-12 page-section_title">{{header}}</h1>
+          <h1 class="col-12 col-lg-12 page-section_title">{{header}}</h1>
           <p class="col-12 offset-lg-1 col-lg-10 mt-5">{{advertise}}</p>
           <div class="offset-3 col-12 offset-lg-8 after-resize-btn">
             <a class="mainPageBtn mt-5" href="#trainingEdu">{{trainingBtn}}</a>
@@ -121,24 +121,30 @@ export default {
 };
 </script>
 <style scoped>
-  @media screen and (max-width: 420px){
-    .page-section{
-      margin-top: 30%;
-      padding-top: 35%;
-    }
-    .page-section_img_right{
-      display: none;
-    }
-    .bgSvg-1{
-      display: none;
-    }
-    .after-resize-btn a{
-      margin-bottom: 15%;
-    }
-    .after-resize-page{
-      height: 100vh;
-    }
+@media screen and (max-width: 420px) {
+  .bgSvg-1 {
+    display: none;
   }
+  .page-section {
+    margin-top: 30%;
+    padding-top: 35%;
+  }  
+}
+@media screen and (max-width: 1390px) {
+  .page-section{
+    margin-top: 7%;
+  }
+  .page-section_img_right {
+    display: none;
+  }
+
+  .after-resize-btn a {
+    margin-bottom: 15%;
+  }
+  .after-resize-page {
+    height: 100vh;
+  }
+}
 </style>
 
 <style scope>
@@ -146,6 +152,7 @@ export default {
   overflow: hidden;
   height: 100vmin;
   min-height: 400px;
+  z-index: 29;
 }
 .page-section {
   position: relative;
@@ -234,27 +241,27 @@ svg.bgSvg-1 {
   animation: bg-1-move 3s infinite;
 }
 
-@keyframes left-arrow-move{
-    50%{
-        transform: translateX( 2rem);
-    }
+@keyframes left-arrow-move {
+  50% {
+    transform: translateX(2rem);
+  }
 }
 
-@keyframes right-arrow-move{
-    50%{
-        transform: translateX(-2rem);
-    }
+@keyframes right-arrow-move {
+  50% {
+    transform: translateX(-2rem);
+  }
 }
 
-.bgSvg-1 .left-arrow{
-    position: relative;
-    left: 2rem;
-    animation: left-arrow-move 3s infinite;
+.bgSvg-1 .left-arrow {
+  position: relative;
+  left: 2rem;
+  animation: left-arrow-move 3s infinite;
 }
-.bgSvg-1 .right-arrow{
-    position: relative;
-    right: 2rem;
-    animation: right-arrow-move 3s infinite;
+.bgSvg-1 .right-arrow {
+  position: relative;
+  right: 2rem;
+  animation: right-arrow-move 3s infinite;
 }
 </style>
 

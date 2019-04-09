@@ -90,7 +90,6 @@
 
             <div class="mail-send-area ml-auto text-center">
                 <form id="sendMail">
-                    
                     <div class=" d-flex justify-content-end">
                         <svg class="ml-auto" id="mail-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52.5 23">
                             <g id="mail_text" data-name="mail text" transform="translate(0.476 0)">
@@ -108,7 +107,6 @@
                         {{sendMail}}
                         <img src="../assets/papperPlane.svg">
                     </button>
-                    <p></p>
                 </form>
             </div>     
         </div>
@@ -349,7 +347,7 @@ export default {
         color: #B90024;
     }
 
-    @media only screen and (max-width: 420px){
+    @media only screen and (max-width: 1390px){
         .after-resize-menu{
             right: 10%;
         }
@@ -384,10 +382,13 @@ export default {
             display: none !important;
         }
     }
-    @media only screen and (min-width: 420px){
+    @media only screen and (min-width: 1390px){
         .after-resize-menu{
             display: none !important;
         }
+    }
+    .mail-send-area{
+
     }
 
     .page-header_button{
