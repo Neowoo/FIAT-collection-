@@ -78,7 +78,7 @@
           </g>
         </svg>
 
-        <div class="page-section_adver text-left col-12 col-lg-4 offset-lg-1 order-1 order-lg-0">
+        <div class="page-section_adver text-left col-12 col-lg-5 offset-lg-1 order-1 order-lg-0">
           <h1 class="col-12 col-lg-12 page-section_title">{{header}}</h1>
           <p class="col-12 offset-lg-1 col-lg-10 mt-5">{{advertise}}</p>
           <div class="offset-3 col-12 offset-lg-8 after-resize-btn">
@@ -171,7 +171,7 @@ export default {
 }
 .page-section .page-section_img_right {
   right: -10%;
-  top: -17%;
+  top: -25%;
   width: 60%;
   /* height: 100%; */
 }
