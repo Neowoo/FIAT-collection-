@@ -686,7 +686,7 @@ export default {
   padding: 0.5rem;
   border-radius: 1rem;
 }
-@media screen and (max-width: 420px){
+@media screen and (max-width: 500px){
   .before-resized-equipMenu{
     display: none;
   }

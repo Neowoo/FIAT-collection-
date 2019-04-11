@@ -33,9 +33,14 @@
             </div> -->
             <!-- <div class="page-header_button"> -->
                 <!-- 登入後圖示 -->
-                <div v-if='this.$store.state.logDone'>
-                    <div class="trylog d-flex align-items-center justify-content-center">
+                <div v-if='this.$store.state.logDone' class="position-absolute memberIcon">
+                    <div class="trylog d-flex align-items-center justify-content-center m-auto" @click="memberList = !memberList">
                         <eva-icon name="person-done" width='65%' height='65%' animation="pulse" fill="orange"></eva-icon>
+                    </div>
+                    <div v-if="memberList" class="memberOption-outside m-auto">
+                        <div class="memberOption">
+                            <p>登出</p>
+                        </div>
                     </div>
                 </div>
 
@@ -139,6 +144,7 @@ export default {
     name: 'Opening',
     data(){
         return{
+            memberList: true,
             menuHide: false,
             scrolled: true,
             // logDone: false,
@@ -281,6 +287,25 @@ export default {
 }
 </script>
 <style scope>
+    .memberIcon{
+        top: 35%;
+        left: 30%;
+    }
+    .memberOption{
+        /* border: 1px solid gray; */
+        box-shadow: 2px 2px 10px grey;
+    }
+    .memberOption p{
+        margin: .5rem 0;
+        background-color: #fff;
+    }
+    .memberOption p:hover{
+        color: #B90024;
+    }
+    .memberOption-outside{
+        padding-top: .5rem;
+        width: 50%;
+    }
     #nav{
         display: block;
         padding-right: 5rem;
@@ -490,8 +515,9 @@ export default {
         position: relative;
         /* left: 35%; */
         width: 15%;
-        clip-path: circle(50% at 50% 50%);
+        clip-path: circle(48% at 50% 50%);
         cursor: pointer;
+        /* margin-bottom: 1rem; */
     }
     .trylog:before{
         content: "";

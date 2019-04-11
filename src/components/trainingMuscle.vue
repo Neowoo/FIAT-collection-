@@ -707,7 +707,7 @@ iframe{
   /* width: 50%; */
   left: -3%;
 }
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 500px) {
   .before-resize{
     display: none;
   }

@@ -315,7 +315,7 @@ export default {
   width: 95%;
   height: 15rem;
 }
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 500px) {
   .before-resize {
     display: none;
   }
@@ -368,7 +368,7 @@ export default {
     display: none;
   }
 }
-@media screen and (min-width: 420px) {
+@media screen and (min-width: 500px) {
   .after-resize-foodMenu {
     display: none;
   }
