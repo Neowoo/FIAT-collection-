@@ -50,7 +50,7 @@
                         <b-form-group class="mb-4" label='密碼：' label-cols-sm="3">
                             <b-form-input class="col-8" type='password' v-model="logInPassword"></b-form-input>
                         </b-form-group>      
-                        <p v-if='key_wrong'>※錯誤！請重新輸入</p>
+                        <p v-if='this.$store.state.key_wrong'>※錯誤！請重新輸入</p>
                         
                         <div class="d-flex justify-content-center">
                             <b-button variant="link" class=" text-right signUp" @click="this.$store.state.signUpOk = true" v-b-modal.signUp>
@@ -142,7 +142,7 @@ export default {
             menuHide: false,
             scrolled: true,
             // logDone: false,
-            key_wrong: false,
+            // key_wrong: false,
             loginBtn: '登入',
             signUpBtn: '還沒有帳號？',
             trainingBtn: '開始訓練',

@@ -11,7 +11,8 @@ export default new Vuex.Store({
     logDone: false,
     idToken: null,
     userId: null,
-    user: null
+    user: null,
+    key_wrong: false
   },
   getters: {},
   mutations: {
@@ -89,19 +90,20 @@ export default new Vuex.Store({
           const now = new Date();
           const expirationData = new Date(
             now.getTime() + res.data.expiresIn * 1000
-          );
+          )
           localStorage.setItem('token', token);
           localStorage.setItem('userId', userId);
           localStorage.setItem('expirationData', expirationData);
+          state.logDone = true;
           commit('authUser', {
             token: res.data.idToken,
             userId: res.data.localId
           });
           dispatch('setLogoutTime', expirationData);
-          state.logDone = true;
         })
         .catch(err => {
           console.log(err);
+          state.key_wrong = !state.key_wrong
         });
     },
     remainLogin({commit, state}){
