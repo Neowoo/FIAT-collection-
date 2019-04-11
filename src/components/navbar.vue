@@ -219,6 +219,7 @@ export default {
             document.getElementById('sendMail').classList.remove('mail-scroll')
         }
       });
+      this.$store.dispatch('remainLogin')
     },
     validations:{
         signUpEmail:{
