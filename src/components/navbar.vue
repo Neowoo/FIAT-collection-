@@ -27,11 +27,13 @@
                     <div class="trylog d-flex align-items-center justify-content-center m-auto" @click="memberList = !memberList">
                         <eva-icon name="person-done" width='65%' height='65%' animation="pulse" fill="orange"></eva-icon>
                     </div>
-                    <div v-if="memberList" class="memberOption-outside m-auto">
-                        <div class="memberOption">
-                            <p>登出</p>
+                    <transition name=fade>
+                        <div v-if="memberList" class="memberOption-outside m-auto">
+                            <div class="memberOption">
+                                <p @click="logout">登出</p>
+                            </div>
                         </div>
-                    </div>
+                    </transition>
                 </div>
 
                 <b-button v-if="!this.$store.state.logDone" class="after-resize_button position-relative navSignIn" v-b-modal.signIn>{{loginBtn}}</b-button>
@@ -232,6 +234,9 @@ export default {
         }
     },
     methods: {
+        logout(){
+            this.$store.dispatch('logout')
+        },
         login(evt){
              const logInData = {
                  logInEmail: this.logInEmail,
@@ -530,7 +535,6 @@ export default {
         font-size: .8rem;
         text-align: left;
     }    
-
 </style>
 
 

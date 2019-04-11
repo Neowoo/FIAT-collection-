@@ -119,6 +119,13 @@ export default new Vuex.Store({
         }
         commit('authUser', {token: token, userId: userId})
         state.logDone = true
-      }
+    },
+    logout({commit, state}){
+        localStorage.removeItem('token')
+        localStorage.removeItem('userId')
+        localStorage.removeItem('expirationData')
+        commit('clearAuthUser')
+        state.logDone = false
+    }
     }
 });
