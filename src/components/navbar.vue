@@ -33,16 +33,16 @@
             </div> -->
             <!-- <div class="page-header_button"> -->
                 <!-- 登入後圖示 -->
-                <div v-if='logDone' class="after-resize_menu pl-3">
+                <div v-if='this.$store.state.logDone'>
                     <div class="trylog d-flex align-items-center justify-content-center">
                         <eva-icon name="person-done" width='65%' height='65%' animation="pulse" fill="orange"></eva-icon>
                     </div>
                 </div>
 
-                <b-button v-if="!logDone" class="after-resize_button position-relative navSignIn" v-b-modal.signIn>{{loginBtn}}</b-button>
+                <b-button v-if="!this.$store.state.logDone" class="after-resize_button position-relative navSignIn" v-b-modal.signIn>{{loginBtn}}</b-button>
 
                 <!-- Modal1 Component -->
-                <b-modal v-if="!logDone" id="signIn" ok-title='登入' cancel-title='取消' centered title="登入會員" v-b-modal.modalPrevent @ok='login'>
+                <b-modal v-if="!this.$store.state.logDone" id="signIn" ok-title='登入' cancel-title='取消' centered title="登入會員" v-b-modal.modalPrevent @ok='login'>
                     <b-form>
                         <b-form-group class="my-4" label='帳號(信箱)：' label-cols-sm="3">
                             <b-form-input class="col-8" v-model="logInEmail"></b-form-input>
@@ -53,14 +53,14 @@
                         <p v-if='key_wrong'>※錯誤！請重新輸入</p>
                         
                         <div class="d-flex justify-content-center">
-                            <b-button variant="link" class=" text-right signUp" @click="signUpOk = true" v-b-modal.signUp>
+                            <b-button variant="link" class=" text-right signUp" @click="this.$store.state.signUpOk = true" v-b-modal.signUp>
                                 {{signUpBtn}}<eva-icon name='person-add' fill='orangered'></eva-icon>
                             </b-button>                       
                         </div>
                     </b-form>
                 </b-modal>
 
-                <b-modal id="signUp" v-if="signUpOk" ok-title='註冊' cancel-title='取消' centered title='註冊會員' @ok='signUp'>
+                <b-modal id="signUp" v-if="this.$store.state.signUpOk" ok-title='註冊' cancel-title='取消' centered title='註冊會員' @ok='signUp'>
                     <div class="row">
                         <div class="col-6">
                             <b-form-group class="my-4" label='姓：' label-cols-sm="2">
@@ -112,7 +112,7 @@
         </div>
 
         <div v-show="menuHide" class="row menu-scroll-hide">
-            <b-button v-if="!logDone" class="navSignIn" v-b-modal.signIn>{{loginBtn}}</b-button>
+            <b-button v-if="!this.$store.state.logDone" class="navSignIn" v-b-modal.signIn>{{loginBtn}}</b-button>
             <div class="col-12" @click="menuHide = !menuHide" >
                 <router-link tag="li" class=" navbarLi" :to='{name: "home", hash: "#aboutUs"}'>
                     關於我們
@@ -141,7 +141,7 @@ export default {
         return{
             menuHide: false,
             scrolled: true,
-            logDone: false,
+            // logDone: false,
             key_wrong: false,
             loginBtn: '登入',
             signUpBtn: '還沒有帳號？',
@@ -184,7 +184,7 @@ export default {
             signUpEmail: '',
             signUpPassword: '',
             signUpConfirm: '',
-            signUpOk: true,
+            // signUpOk: true,
             logInEmail: '',
             logInPassword: '',
         }
@@ -241,19 +241,20 @@ export default {
                  logInPassword: this.logInPassword
              }
              evt.preventDefault();
-             axios.post('/verifyPassword?key=AIzaSyAr7sqm-7JNNnHTNv2IzF-gU3c1VTciEoU', {
-                 email: logInData.logInEmail,
-                 password: logInData.logInPassword,
-                 returnSecureToken: true
-             })
-             .then(res => {
-                 console.log(res);
-                 this.logDone = true;
-                })
-             .catch(err => {
-                 console.log(err);
-                 this.key_wrong = !this.key_wrong;
-                })
+             this.$store.dispatch('logIn', logInData)
+            //  axios.post('/verifyPassword?key=AIzaSyAr7sqm-7JNNnHTNv2IzF-gU3c1VTciEoU', {
+            //      email: logInData.logInEmail,
+            //      password: logInData.logInPassword,
+            //      returnSecureToken: true
+            //  })
+            //  .then(res => {
+            //      console.log(res);
+            //      this.logDone = true;
+            //     })
+            //  .catch(err => {
+            //      console.log(err);
+            //      this.key_wrong = !this.key_wrong;
+            //     })
         },
         signUp(evt){
             evt.preventDefault();
@@ -262,18 +263,18 @@ export default {
             signUpPassword: this.signUpPassword,
             signUpConfirm: this.signUpConfirm,
             }
-
-            axios.post('/signupNewUser?key=AIzaSyAr7sqm-7JNNnHTNv2IzF-gU3c1VTciEoU', {
-            email: formData.signUpEmail,
-            password: formData.signUpPassword,
-            returnSecureToken: true
-            })            
-            .then(res => {
-                console.log(res)
-                alert('signup ok!');
-                this.signUpOk = false;
-            })
-            .catch(err => console.log(err))
+            this.$store.dispatch('signUp', formData)
+            // axios.post('/signupNewUser?key=AIzaSyAr7sqm-7JNNnHTNv2IzF-gU3c1VTciEoU', {
+            // email: formData.signUpEmail,
+            // password: formData.signUpPassword,
+            // returnSecureToken: true
+            // })            
+            // .then(res => {
+            //     console.log(res)
+            //     alert('signup ok!');
+            //     this.signUpOk = false;
+            // })
+            // .catch(err => console.log(err))
         }
     }
 }
@@ -347,7 +348,7 @@ export default {
         color: #B90024;
     }
 
-    @media only screen and (max-width: 1390px){
+    @media only screen and (max-width: 1450px){
         .after-resize-menu{
             right: 10%;
         }

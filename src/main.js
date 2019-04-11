@@ -10,6 +10,10 @@ import EvaIcons from '../node_modules/vue-eva-icons'
 import AOS from '../node_modules/aos'
 import '../node_modules/aos/dist/aos.cjs'
 import Vuelidate from 'vuelidate'
+import store from './store'
+import axios from 'axios'
+
+axios.defaults.baseURL='https://fiat-f98e0.firebaseio.com/'
 
 Vue.config.productionTip = false
 Vue.use(Vuelidate)
@@ -22,4 +26,5 @@ new Vue({
   },
   render: h => h(App),
   router,
+  store
 }).$mount('#app')
