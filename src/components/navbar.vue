@@ -22,16 +22,6 @@
                     <p>健身好物</p>
                 </router-link> 
             </ul>
-
-            <!-- <div class="page-header_button ml-auto">
-                <b-button class="btn" v-b-modal.logIn>{{loginBtn}}</b-button>
-            </div>  
-            <div>
-                <b-modal id="logIn" title="BootstrapVue">
-                    <p class="my-4">Hello from modal!</p>
-                </b-modal>
-            </div> -->
-            <!-- <div class="page-header_button"> -->
                 <!-- 登入後圖示 -->
                 <div v-if='this.$store.state.logDone' class="position-absolute memberIcon">
                     <div class="trylog d-flex align-items-center justify-content-center m-auto" @click="memberList = !memberList">
@@ -144,7 +134,7 @@ export default {
     name: 'Opening',
     data(){
         return{
-            memberList: true,
+            memberList: false,
             menuHide: false,
             scrolled: true,
             // logDone: false,
@@ -249,19 +239,6 @@ export default {
              }
              evt.preventDefault();
              this.$store.dispatch('logIn', logInData)
-            //  axios.post('/verifyPassword?key=AIzaSyAr7sqm-7JNNnHTNv2IzF-gU3c1VTciEoU', {
-            //      email: logInData.logInEmail,
-            //      password: logInData.logInPassword,
-            //      returnSecureToken: true
-            //  })
-            //  .then(res => {
-            //      console.log(res);
-            //      this.logDone = true;
-            //     })
-            //  .catch(err => {
-            //      console.log(err);
-            //      this.key_wrong = !this.key_wrong;
-            //     })
         },
         signUp(evt){
             evt.preventDefault();
@@ -271,17 +248,6 @@ export default {
             signUpConfirm: this.signUpConfirm,
             }
             this.$store.dispatch('signUp', formData)
-            // axios.post('/signupNewUser?key=AIzaSyAr7sqm-7JNNnHTNv2IzF-gU3c1VTciEoU', {
-            // email: formData.signUpEmail,
-            // password: formData.signUpPassword,
-            // returnSecureToken: true
-            // })            
-            // .then(res => {
-            //     console.log(res)
-            //     alert('signup ok!');
-            //     this.signUpOk = false;
-            // })
-            // .catch(err => console.log(err))
         }
     }
 }
