@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: gray;
+      }
+    </style>
+  </defs>
+  <g id="linkedin-button" transform="translate(0)">
+    <g id="Group_198" data-name="Group 198">
+      <g id="Group_197" data-name="Group 197">
+        <path id="Path_301" data-name="Path 301" class="cls-1" d="M15,0A15,15,0,1,0,30,15,15,15,0,0,0,15,0ZM11.25,22.266H7.5V9.141h3.75ZM9.491,8.336A1.759,1.759,0,1,1,11.25,6.577,1.757,1.757,0,0,1,9.491,8.336ZM24.375,22.266h-3.75V14.151c0-.951-.272-1.616-1.44-1.616a2.249,2.249,0,0,0-2.31,1.616v8.115h-3.75V9.141h3.75v1.254a6.272,6.272,0,0,1,3.75-1.253c1.215,0,3.75.727,3.75,5.122v8Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

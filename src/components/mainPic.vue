@@ -91,13 +91,13 @@
         ></div>
       </div>
       <div class="page-section_wrap row align-items-end">
-        <div class="col-12 col-lg-6 col-xl-5 offset-lg-1">
+        <div class="col-12 col-lg-6 col-xl-5 offset-lg-1 mb-5">
           <div class="page-section_box">
             <img src="../assets/cutweightchart.svg">
           </div>
-          <ul class="d-flex flex-row justify-content-between">
+          <!-- <ul class="d-flex flex-row justify-content-between planArea">
             <li class="d-block" v-for="plan in schedule">{{plan}}</li>
-          </ul>
+          </ul> -->
         </div>
       </div>
     </div>
